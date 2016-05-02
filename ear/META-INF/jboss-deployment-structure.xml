@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+    
+    <ear-subdeployments-isolated>true</ear-subdeployments-isolated>
+  <deployment>
+    <exclusions>
+        <module name="org.apache.cxf" />
+        <module name="javaee.api" />
+        <module name="javax.ws.rs.api"/>
+        <module name="org.jboss.resteasy.resteasy-atom-provider" />
+        <module name="org.jboss.resteasy.resteasy-cdi" />
+        <module name="org.jboss.resteasy.resteasy-crypto" />
+        <module name="org.jboss.resteasy.resteasy-jackson-provider" />
+        <module name="org.jboss.resteasy.resteasy-jaxb-provider" />
+        <module name="org.jboss.resteasy.resteasy-jaxrs" />
+        <module name="org.jboss.resteasy.resteasy-jettison-provider" />
+        <module name="org.jboss.resteasy.resteasy-jsapi" />
+        <module name="org.jboss.resteasy.resteasy-json-p-provider" />
+        <module name="org.jboss.resteasy.resteasy-multipart-provider" />
+        <module name="org.jboss.resteasy.resteasy-validator-provider-11" />
+        <module name="org.jboss.resteasy.resteasy-yaml-provider" />
+
+
+        <module name="org.codehaus.jackson.jackson-core-asl"/>
+        <module name="org.codehaus.jackson.jackson-jaxrs"/>
+        <module name="org.codehaus.jackson.jackson-mapper-asl"/>
+        <module name="org.codehaus.jackson.jackson-xc"/>
+        <module name="org.codehaus.jettison"/>
+
+        <module name="org.joda.time"/>
+
+        <module name="org.hibernate.validator"/>
+
+        <module name="org.apache.log4j"/>
+        <module name="org.slf4j"/>
+    </exclusions>
+
+    <dependencies>
+        <module name="com.vendavo.ojdbc6" export="true"/>
+        <module name="com.vendavo.jdktools" export="true"/>
+        <module name="com.vendavo.javaee-api" export="true"/>
+        <module name="org.jboss.security.negotiation" export="true"/>
+        <module name="org.jboss.ironjacamar.jdbcadapters" export="true"/>
+
+        <module name="com.vendavo.logging" export="true"/>
+    </dependencies>
+  </deployment>
+    <sub-deployment name="vendavo.war">
+        <!--dependencies>
+            <module name="com.vendavo.ojdbc6" export="true"/>
+            <module name="com.vendavo.jdktools" export="true"/>
+            <module name="deployment.kubera.ear" export="true"/>
+        </dependencies>
+                -->
+
+        <exclusions>
+            <module name="org.apache.cxf" />
+            <module name="javaee.api" />   <!-- included in com.vendavo.javaee-api without jaxrs 1.1 -->
+            <module name="javax.ws.rs.api"/>
+
+            <module name="org.jboss.resteasy.resteasy-atom-provider" />
+            <module name="org.jboss.resteasy.resteasy-cdi" />
+            <module name="org.jboss.resteasy.resteasy-crypto" />
+            <module name="org.jboss.resteasy.resteasy-jackson-provider" />
+            <module name="org.jboss.resteasy.resteasy-jaxb-provider" />
+            <module name="org.jboss.resteasy.resteasy-jaxrs" />
+            <module name="org.jboss.resteasy.resteasy-jettison-provider" />
+            <module name="org.jboss.resteasy.resteasy-jsapi" />
+            <module name="org.jboss.resteasy.resteasy-json-p-provider" />
+            <module name="org.jboss.resteasy.resteasy-multipart-provider" />
+            <module name="org.jboss.resteasy.resteasy-validator-provider-11" />
+            <module name="org.jboss.resteasy.resteasy-yaml-provider" />
+
+
+            <module name="org.codehaus.jackson.jackson-core-asl"/>
+            <module name="org.codehaus.jackson.jackson-jaxrs"/>
+            <module name="org.codehaus.jackson.jackson-mapper-asl"/>
+            <module name="org.codehaus.jackson.jackson-xc"/>
+            <module name="org.codehaus.jettison"/>
+
+            <module name="org.joda.time"/>
+
+            <module name="org.hibernate.validator"/>
+
+	        <module name="org.apache.log4j"/>
+	        <module name="org.slf4j"/>
+
+        </exclusions>
+    </sub-deployment>
+    <!--sub-deployment name="ven-cluster-mdb.jar">
+        <dependencies>
+            <module name="deployment.kubera.ear.vendavo.war" export="true"/>
+        </dependencies>
+    </sub-deployment-->
+</jboss-deployment-structure>
+
